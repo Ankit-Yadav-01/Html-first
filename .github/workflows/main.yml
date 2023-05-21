@@ -1,20 +1,17 @@
-name: Show Contributor Message
-
+name: Message on pull request
 on:
- issues:
-  types:
-    - opened
-  
+  pull_request:
+    types:
+      - opened
 
 jobs:
-  show_message:
-    runs-on: ubuntu-latest
-
+  myjob1:
+    runs-on: windows-latest
+    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Show message to contributor
-        run: |
-          echo "Thank you for your contribution! We appreciate your effort."
-          echo "Please make sure to follow our contribution guidelines."
+      - name: for creator
+        run:
+          echo "Thankyou for your pull request we will get back to you"
+          echo "I am still working on my workflow"
+          
+        
