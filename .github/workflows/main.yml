@@ -1,8 +1,10 @@
 name: Show Contributor Message
 
 on:
-  pull_request:
-    types: [opened, synchronize]
+ issues:
+  types:
+    - opened
+  
 
 jobs:
   show_message:
