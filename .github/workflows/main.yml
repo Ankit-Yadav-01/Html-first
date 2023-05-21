@@ -1,22 +1,18 @@
+name: Show Contributor Message
+
 on:
   pull_request:
-    branches:
-      - main # Replace with your desired branch name
+    types: [opened, synchronize]
 
 jobs:
   show_message:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check if Contributor
-        id: check_contributor
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Show message to contributor
         run: |
-          if [[ "${{ github.event.pull_request.user.login }}" != "${{ github.repository_owner }}" ]]; then
-            echo "::set-output name=contributor::true"
-          else
-            echo "::set-output name=contributor::false"
-          fi
-      
-      - name: Show Message to Contributor
-        if: steps.check_contributor.outputs.contributor == 'true'
-        run: echo "Thank you for your contribution!"
+          echo "Thank you for your contribution! We appreciate your effort."
+          echo "Please make sure to follow our contribution guidelines."
